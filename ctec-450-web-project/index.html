@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MY-Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 </head>
 <body>
 
@@ -25,9 +27,12 @@
     <section id="home">
         <h1><a href="#home">Home</a></h1>
         <p>Welcome to my personal website! Here you can learn more about my work and expertise.</p>
-        <p>I am a **technology-driven professional** with a **Bachelor’s degree in Computer Technology and Security** (Expected: **May 2025**). My experience spans across **software development, sales, customer service, and delivery operations**, bridging **technology and business operations**.</p>
-       
+        <p>I am a technology-driven professional with a Bachelor's degree in Computer Technology and Security 
+           (Expected: May 2025). My experience spans across software development, sales, customer service, and 
+           delivery operations, bridging technology and business operations.</p>
+        <a href="#top" class="back-to-top">Back to Top</a>
     </section>
+    
 
     <section id="about">
         <h1><a href="#home">About</a></h1>
@@ -99,9 +104,32 @@
         <a href="#top" class="back-to-top">Back to Top</a>
     </section>
 
-    <footer>
-        <p>&copy; 2024 My Website. All Rights Reserved.</p>
-    </footer>
+   
+<!-- Other Sections Like Home, About, Resume, etc. -->
+
+<!-- QR Code Section -->
+<section id="qr-code">
+    
+    <div id="qrcode"></div>
+    <button onclick="downloadQRCode()">Download QR</button>
+</section>
+
+<!-- Chat Box -->
+<div class="chatbox">
+    <div class="chat-header">Chat with Me</div>
+    <div class="chat-body" id="chat-body">
+        <p>👋 Hi there! How can I help you today?</p>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="chat-input" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+<footer>
+    <p>&copy; 2024 My Website. All Rights Reserved.</p>
+</footer>
+<!-- Link JavaScript at the End -->
+<script src="script.js"></script>
 
 </body>
 </html>

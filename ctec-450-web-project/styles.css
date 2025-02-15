@@ -115,3 +115,85 @@ footer {
 .back-to-top:hover {
     text-decoration: underline;
 }
+/* Center all section titles */
+section h1 {
+    text-align: center;
+    font-size: 2rem;  /* Adjust the size as needed */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Remove underline from section titles */
+section h1 a {
+    text-decoration: none;
+    color: inherit; /* Keeps the default text color */
+}
+
+/* Optional: Add spacing to sections for better visual appearance */
+section {
+    padding: 50px 20px;
+}
+#qr-code {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#qrcode {
+    margin: 10px auto;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.chatbox {
+    width: 300px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.chat-header {
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.chat-body {
+    padding: 10px;
+    min-height: 100px;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.chat-footer {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding: 5px;
+}
+
+.chat-footer input {
+    flex: 1;
+    border: none;
+    padding: 5px;
+    outline: none;
+}
+
+.chat-footer button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
