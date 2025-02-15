@@ -34,6 +34,14 @@ document.getElementById("chat-input").addEventListener("keypress", function(even
     }
 });
 
+
+document.getElementById("chat-input").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Prevent form submission
+        sendMessage();
+    }
+});
+
 // Chatbot Logic
 function sendMessage() {
     let chatBody = document.getElementById("chat-body");
@@ -71,26 +79,31 @@ function getChatbotReply(userMessage) {
     }
 
     // Education Related Responses
-    if (lowerCaseMessage.includes("education")) {
+    if (lowerCaseMessage.includes("education") || lowerCaseMessage.includes("degree") || lowerCaseMessage.includes("university")) {
         return "I hold a Bachelor's degree in Computer Technology and Security from Bowie State University. Expected graduation: May 2025.";
     }
-    if (lowerCaseMessage.includes("certification")) {
+    if (lowerCaseMessage.includes("certification") || lowerCaseMessage.includes("certificate")) {
         return "I have a Phi Theta Kappa Certification from Prince George’s Community College.";
     }
 
     // Skills Related Responses
-    if (lowerCaseMessage.includes("skills") || lowerCaseMessage.includes("what can you do")) {
-        return "I specialize in full-stack development. My skills include React, JavaScript, Python, MongoDB, AWS, RESTful APIs, and networking.";
+    if (lowerCaseMessage.includes("skills") || lowerCaseMessage.includes("what can you do") || lowerCaseMessage.includes("technical skills")) {
+        return "I specialize in full-stack development. My skills include: \n- Front-end: React, JavaScript, HTML, CSS\n- Back-end: Python, Node.js, RESTful APIs\n- Database: MongoDB\n- Cloud Computing: AWS, Azure, Google Cloud";
     }
 
     // Work Experience Related Responses
-    if (lowerCaseMessage.includes("experience") || lowerCaseMessage.includes("work")) {
+    if (lowerCaseMessage.includes("experience") || lowerCaseMessage.includes("work") || lowerCaseMessage.includes("job history")) {
         return "I have experience as a Sales Associate, Delivery Service, and Web Developer, where I handled customer service, software development, and cloud technology integration.";
     }
 
     // GitHub or Portfolio Links
-    if (lowerCaseMessage.includes("github") || lowerCaseMessage.includes("projects")) {
-        return "You can check my GitHub here: https://github.com/ylkM";
+    if (lowerCaseMessage.includes("github") || lowerCaseMessage.includes("projects") || lowerCaseMessage.includes("work samples")) {
+        return "You can check my projects on my GitHub: [GitHub Profile](https://github.com/ylkM)";
+    }
+
+    // Specific Project Inquiry
+    if (lowerCaseMessage.includes("what project") || lowerCaseMessage.includes("projects you did") || lowerCaseMessage.includes("work examples")) {
+        return "Here are some of my latest projects:\n- **Networking**: Configured LAN and WAN networks for secure data transfer.\n- **Cybersecurity**: Applied Cyber NIST framework for threat identification & risk analysis.\n- **Web Development**: Developed a school website for students to enroll in courses.";
     }
 
     // Job Application or Hiring
@@ -98,6 +111,6 @@ function getChatbotReply(userMessage) {
         return "I'm always open to new opportunities! Feel free to reach out to me at MY.email@example.com.";
     }
 
-    // Default Response
-    return "I'm not sure how to respond to that, but feel free to ask about my education, skills, experience, or projects!";
+    // Default Response (Fallback)
+    return "I'm not sure how to respond to that, but you can ask about my **education, skills, experience, or projects**!";
 }
