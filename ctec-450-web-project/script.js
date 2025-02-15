@@ -27,21 +27,6 @@ function downloadQRCode() {
 // Call QR generation when the page loads
 window.onload = generateQRCode;
 
-document.getElementById("chat-input").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        event.preventDefault(); // Prevent form submission
-        sendMessage();
-    }
-});
-
-
-document.getElementById("chat-input").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        event.preventDefault(); // Prevent form submission
-        sendMessage();
-    }
-});
-
 // Chatbot Logic
 function sendMessage() {
     let chatBody = document.getElementById("chat-body");
@@ -114,3 +99,22 @@ function getChatbotReply(userMessage) {
     // Default Response (Fallback)
     return "I'm not sure how to respond to that, but you can ask about my **education, skills, experience, or projects**!";
 }
+
+// Add "Enter" key functionality for sending messages
+document.getElementById("chat-input").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Prevent form submission
+        sendMessage();
+    }
+});
+
+// Chatbox Toggle (Show/Hide)
+document.getElementById("chat-toggle").addEventListener("click", function () {
+    document.getElementById("chatbox").style.display = "block";
+    document.getElementById("chat-toggle").style.display = "none";
+});
+
+document.getElementById("close-chat").addEventListener("click", function () {
+    document.getElementById("chatbox").style.display = "none";
+    document.getElementById("chat-toggle").style.display = "block";
+});

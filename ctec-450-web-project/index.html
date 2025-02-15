@@ -116,16 +116,22 @@
 </section>
 
 <!-- Chat Box -->
-<div class="chatbox">
-    <div class="chat-header">Chat with Me</div>
-    <div class="chat-body" id="chat-body">
+<!-- Chatbox Button -->
+<button id="chat-toggle" class="chat-toggle-btn">Chat with Me</button>
+
+<!-- Chatbox -->
+<div id="chatbox" class="chatbox">
+    <div class="chat-header">
+        <span>Chat with Me</span>
+        <button id="close-chat" class="close-chat-btn">&times;</button>
+    </div>
+    <div id="chat-messages" class="chat-messages">
         <p>👋 Hi there! How can I help you today?</p>
     </div>
-    <div class="chat-footer">
-        <input type="text" id="chat-input" placeholder="Type your message...">
-        <button onclick="sendMessage()">Send</button>
-    </div>
+    <input id="chat-input" type="text" placeholder="Type your message...">
+    <button id="chat-send">Send</button>
 </div>
+
 <footer>
     <p>&copy; 2024 My Website. All Rights Reserved.</p>
 </footer>

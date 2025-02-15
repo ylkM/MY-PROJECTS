@@ -197,3 +197,71 @@ button {
     padding: 5px 10px;
     cursor: pointer;
 }
+  
+/* Chatbox Container */
+.chatbox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Initially hidden */
+}
+
+/* Chat Header */
+.chat-header {
+    background: black;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Close Button */
+.close-chat-btn {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Chat Messages */
+.chat-messages {
+    padding: 10px;
+    height: 200px;
+    overflow-y: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Input & Send Button */
+#chat-input {
+    width: 75%;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+#chat-send {
+    width: 25%;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Chat Toggle Button */
+.chat-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
