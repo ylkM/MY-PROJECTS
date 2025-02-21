@@ -1,3 +1,4 @@
+/* General reset */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,25 +8,31 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
+/* Header styling */
 header {
     background-color: #00274d;
     color: white;
-    padding: 20px 0;
+    padding: 10px 0;
     text-align: center;
     position: relative;
+    z-index: 10; /* Ensure the header is above other elements */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Title styling */
 header h1 {
     margin: 0;
-    padding-bottom: 20px; /* Adds more space below the title */
-    font-size: 28px;
+    padding: 10px 0;
+    font-size: 32px;
+    z-index: 11; /* Ensure title is above navbar */
 }
 
+/* Navigation styling */
 nav {
     width: 100%;
     background-color: #003366;
@@ -33,40 +40,25 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Fix positioning */
-    margin-top: 10px; /* Add spacing between title and navbar */
+    z-index: 9;
+    position: relative;
+    margin: 0;
 }
 
+/* Navbar list styling */
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-header h1 {
-    margin: 0;
-    padding-bottom: 20px; /* Adds more space below the title */
-    font-size: 28px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-    background-color: #003366;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 0;
-    padding: 10px 0;
-}
-
+/* Navbar link styling */
 nav ul li {
     display: inline;
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 nav ul li a {
@@ -79,6 +71,7 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* Section styling */
 section {
     padding: 20px;
     background: white;
@@ -86,27 +79,21 @@ section {
     width: 80%;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 8;
 }
 
-h1, h2 {
-    color: #00274d;
-}
-
+/* Footer styling */
 footer {
-    text-align: center;
-    padding: 10px;
     background-color: #00274d;
     color: white;
-    position: fixed;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
-
-footer p {
-    margin: 5px 0;
-    font-size: 14px;
-}
-
+/* Footer link styling */
 footer a {
     color: #66ccff;
     text-decoration: none;
@@ -115,3 +102,6 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+
+
