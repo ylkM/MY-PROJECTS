@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yilake's Portfolio - Resume">
+    <meta name="author" content="Yilake">
+    <title>Yilake | Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Yilake's Portfolio</h1>
+            <nav aria-label="Main navigation">
+                <ul role="menubar">
+                    <li role="menuitem"><a href="index.html">Home</a></li>
+                    <li role="menuitem"><a href="about.html">About</a></li>
+                    <li role="menuitem"><a href="resume.html">Resume</a></li>
+                    <li role="menuitem"><a href="projects.html">Projects</a></li>
+                    <li role="menuitem"><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h2>Resume</h2>
+                
+                <article class="experience">
+                    <h3>Work Experience</h3>
+                    <ul>
+                        <li>
+                            <h4>SSH Silver Spring LLC</h4>
+                            <p>Silver Spring, MD</p>
+                            <time datetime="2024-02">February 2024</time> - <time datetime="2024-12">December 2024</time>
+                            <ul>
+                                <li>Provide a warm welcome to guests and offer information about hotel facilities, services, and local attractions.</li>
+                                <li>Work closely with the front desk, concierge, and valet teams to ensure smooth operations.</li>
+                                <li>Provide support during busy periods, such as check-in/check-out rushes or events.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h4>Jamus Petro Inc. | Sales Associate</h4>
+                            <p>Silver Spring, MD</p>
+                            <time datetime="2023-10">October 2023</time> - <time datetime="2024-01">January 2024</time>
+                            <ul>
+                                <li>Sell and promote petrochemical products and services.</li>
+                                <li>Provide excellent customer service and handle inquiries professionally.</li>
+                                <li>Process payments, issue receipts, and maintain accurate records.</li>
+                                <li>Follow safety and environmental regulations.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h4>Dunkin Donuts | Delivery Service</h4>
+                            <p>Washington, DC</p>
+                            <time datetime="2022-08">August 2022</time> - <time datetime="2023-09">September 2023</time>
+                            <ul>
+                                <li>Delivered orders using a company vehicle and GPS navigation.</li>
+                                <li>Checked order quality and quantity.</li>
+                                <li>Communicated with store managers and customers.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h4>BP Food Mart | Sales Associate</h4>
+                            <p>Washington, DC</p>
+                            <time datetime="2020-08">August 2020</time> - <time datetime="2023-08">August 2023</time>
+                            <ul>
+                                <li>Operated the cash register, scanned items, and processed payments using cash, credit cards, or coupons.</li>
+                                <li>Stocked and replenished shelves, coolers, and displays, ensuring a clean and organized store.</li>
+                                <li>Checked and verified inventory, reporting discrepancies or shortages to the manager.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h4>East-West Marketing | Sales Associate</h4>
+                            <p>Hyattsville, MD</p>
+                            <time datetime="2019-06">June 2019</time> - <time datetime="2020-07">July 2020</time>
+                            <ul>
+                                <li>Collaborated with marketing team and clients to ensure product and service delivery and satisfaction.</li>
+                                <li>Met and exceeded sales targets, generating reports on performance and feedback.</li>
+                                <li>Maintained a clean, organized, and well-stocked workplace.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="education">
+                    <h3>Education</h3>
+                    <ul>
+                        <li>
+                            <h4>Bowie State University</h4>
+                            <p>Bachelor of Computer Technology and Security</p>
+                            <time datetime="2024-12">Expected December 2024</time>
+                        </li>
+                        <li>
+                            <h4>Prince George’s Community College</h4>
+                            <p>Associate of Arts in General Studies (Phi Theta Kappa Certification)</p>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="skills">
+                    <h3>Technical Skills</h3>
+                    <dl>
+                        <dt>Languages</dt><dd>JavaScript, HTML, CSS, Python</dd>
+                        <dt>Front-End</dt><dd>React, Bootstrap</dd>
+                        <dt>Back-End</dt><dd>Node.js, RESTful APIs</dd>
+                        <dt>Database</dt><dd>MongoDB</dd>
+                        <dt>Cloud</dt><dd>AWS, Azure, Google Cloud</dd>
+                        <dt>Tools</dt><dd>Git, Slack</dd>
+                        <dt>Cybersecurity</dt><dd>LAN/WAN Configurations, Cyber NIST Framework</dd>
+                    </dl>
+                </article>
+
+                <a href="projects.html" class="btn">See My Projects</a>
+            </div>
+        </section>
+    </main>
+
+    <aside class="chatbox-container">
+        <button id="chat-toggle" class="chat-toggle-btn" aria-label="Toggle chat">💬</button>
+        <div id="chatbox" class="chatbox" hidden>
+            <div class="chat-header">
+                <h3>Chat with Me</h3>
+                <button id="close-chat" class="close-chat-btn" aria-label="Close chat">×</button>
+            </div>
+            <div id="chat-messages" class="chat-messages" aria-live="polite">
+                <p>👋 Hi there! How can I help you today?</p>
+            </div>
+            <form class="chat-form">
+                <input id="chat-input" type="text" placeholder="Type your message..." aria-label="Chat message input">
+                <button id="chat-send" type="submit">Send</button>
+            </form>
+        </div>
+    </aside>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Yilake. All rights reserved.</p>
+            <a href="#" class="back-to-top" aria-label="Back to top">↑ Top</a>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
