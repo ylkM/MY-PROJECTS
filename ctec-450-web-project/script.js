@@ -1,120 +1,155 @@
 // QR Code Generation
-function generateQRCode() {
-    let qrContainer = document.getElementById("qrcode");
-    qrContainer.innerHTML = ""; // Clear existing QR code
+const generateQRCode = () => {
+    const qrContainer = document.getElementById('qrcode');
+    qrContainer.innerHTML = ''; // Clear existing QR code
 
-    let qr = new QRCode(qrContainer, {
-        text: "https://github.com/ylkM", // Change this to your link
-        width: 200,
-        height: 200
-    });
-}
+    try {
+        new QRCode(qrContainer, {
+            text: 'https://github.com/ylkM',
+            width: 200,
+            height: 200,
+            colorDark: '#00b4d8', // Match theme color
+            colorLight: '#ffffff',
+        });
+    } catch (error) {
+        console.error('QR Code generation failed:', error);
+        qrContainer.innerHTML = '<p>Sorry, QR code generation failed.</p>';
+    }
+};
 
 // Download QR Code
-function downloadQRCode() {
-    let qrCanvas = document.querySelector("#qrcode canvas");
-    if (qrCanvas) {
-        let qrImage = qrCanvas.toDataURL("image/png");
-        let downloadLink = document.createElement("a");
-        downloadLink.href = qrImage;
-        downloadLink.download = "qrcode.png";
-        downloadLink.click();
-    } else {
-        alert("QR code not found! Please generate it first.");
+const downloadQRCode = () => {
+    const qrCanvas = document.querySelector('#qrcode canvas');
+    if (!qrCanvas) {
+        alert('Please wait for the QR code to generate!');
+        return;
     }
-}
 
-// Call QR generation when the page loads
-window.onload = generateQRCode;
+    const qrImage = qrCanvas.toDataURL('image/png');
+    const downloadLink = document.createElement('a');
+    downloadLink.href = qrImage;
+    downloadLink.download = 'yilake-portfolio-qr.png';
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+};
 
 // Chatbot Logic
-function sendMessage() {
-    let chatBody = document.getElementById("chat-body");
-    let chatInput = document.getElementById("chat-input");
-    let userMessage = chatInput.value.trim();
+class Chatbot {
+    constructor() {
+        this.messagesContainer = document.getElementById('chat-messages');
+        this.input = document.getElementById('chat-input');
+        this.sendBtn = document.getElementById('chat-send');
+        this.setupEventListeners();
+    }
 
-    if (userMessage === "") return;
+    setupEventListeners() {
+        this.sendBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.sendMessage();
+        });
+        
+        this.input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                this.sendMessage();
+            }
+        });
+    }
 
-    // Display user message
-    let userMsgElement = document.createElement("p");
-    userMsgElement.innerHTML = `<strong>You:</strong> ${userMessage}`;
-    chatBody.appendChild(userMsgElement);
+    sendMessage() {
+        const message = this.input.value.trim();
+        if (!message) return;
 
-    // Clear input field
-    chatInput.value = "";
+        this.displayMessage('You', message, 'user-message');
+        this.input.value = '';
 
-    // Simulated Chatbot Response
-    setTimeout(() => {
-        let botReply = document.createElement("p");
-        botReply.innerHTML = `<strong>Bot:</strong> ${getChatbotReply(userMessage)}`;
-        chatBody.appendChild(botReply);
+        setTimeout(() => {
+            const reply = this.getReply(message);
+            this.displayMessage('Bot', reply, 'bot-message');
+        }, 800);
+    }
 
-        // Auto-scroll to the latest message
-        chatBody.scrollTop = chatBody.scrollHeight;
-    }, 1000);
+    displayMessage(sender, text, className) {
+        const messageElement = document.createElement('p');
+        messageElement.className = className;
+        messageElement.innerHTML = `<strong>${sender}:</strong> ${text}`;
+        this.messagesContainer.appendChild(messageElement);
+        this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
+    }
+
+    getReply(message) {
+        const msg = message.toLowerCase();
+
+        const responses = {
+            greeting: ['hello', 'hi', 'hey'],
+            education: ['education', 'degree', 'university', 'school'],
+            certification: ['certification', 'certificate'],
+            skills: ['skills', 'what can you do', 'technical skills', 'abilities'],
+            experience: ['experience', 'work', 'job history', 'jobs'],
+            projects: ['github', 'projects', 'work samples', 'what project', 'projects you did', 'work examples'],
+            contact: ['apply', 'hiring', 'job', 'contact', 'email']
+        };
+
+        if (responses.greeting.some(word => msg.includes(word))) {
+            return 'Hi there! How can I assist you with my portfolio today?';
+        }
+        if (responses.education.some(word => msg.includes(word))) {
+            return 'I have a Bachelor’s Degree in Computer Technology and Security from Bowie State University and hold an Associate Degree from Prince George’s Community College.';
+        }
+        if (responses.certification.some(word => msg.includes(word))) {
+            return 'I earned a Phi Theta Kappa Certification during my time at Prince George’s Community College.';
+        }
+        if (responses.skills.some(word => msg.includes(word))) {
+            return 'I’m skilled in:<br>• Front-end: React, JavaScript, HTML, CSS<br>• Back-end: Node.js, Python, RESTful APIs<br>• Databases: MongoDB<br>• Cloud: AWS, Azure, Google Cloud<br>• Tools: Git, Slack';
+        }
+        if (responses.experience.some(word => msg.includes(word))) {
+            return 'I’ve worked at multiple business institutions as a Sales and customer services Associate . i have also done various school projects such as network configuration, website development, cybersecurity and cloud based projects.';
+        }
+        if (responses.projects.some(word => msg.includes(word))) {
+            return 'Check out my projects:<br>• <strong>Networking:</strong> Secure LAN/WAN configs<br>• <strong>Cybersecurity:</strong> NIST framework implementation<br>• <strong>Web Dev:</strong> School enrollment site<br>More at: <a href="https://github.com/ylkM" target="_blank">github.com/ylkM</a>';
+        }
+        if (responses.contact.some(word => msg.includes(word))) {
+            return 'Interested in collaborating? Reach me at ylkmngst7@gmail.com or via <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a>!';
+        }
+
+        return 'Not sure what you mean! Try asking about my education, skills, experience, or projects.';
+    }
 }
 
-// AI Response Based on Your Profile
-function getChatbotReply(userMessage) {
-    let lowerCaseMessage = userMessage.toLowerCase();
+// Chatbox Toggle
+const toggleChatbox = () => {
+    const chatbox = document.getElementById('chatbox');
+    const toggleBtn = document.getElementById('chat-toggle');
+    
+    chatbox.hidden = !chatbox.hidden;
+    toggleBtn.hidden = !chatbox.hidden;
+};
 
-    // Greeting Responses
-    if (lowerCaseMessage.includes("hello") || lowerCaseMessage.includes("hi")) {
-        return "Hello! How can I assist you today regarding my portfolio?";
-    }
+// Initialize Everything
+document.addEventListener('DOMContentLoaded', () => {
+    // Generate QR Code
+    generateQRCode();
 
-    // Education Related Responses
-    if (lowerCaseMessage.includes("education") || lowerCaseMessage.includes("degree") || lowerCaseMessage.includes("university")) {
-        return "I hold a Bachelor's degree in Computer Technology and Security from Bowie State University. Expected graduation: May 2025.";
-    }
-    if (lowerCaseMessage.includes("certification") || lowerCaseMessage.includes("certificate")) {
-        return "I have a Phi Theta Kappa Certification from Prince George’s Community College.";
-    }
+    // Initialize Chatbot
+    const chatbot = new Chatbot();
 
-    // Skills Related Responses
-    if (lowerCaseMessage.includes("skills") || lowerCaseMessage.includes("what can you do") || lowerCaseMessage.includes("technical skills")) {
-        return "I specialize in full-stack development. My skills include: \n- Front-end: React, JavaScript, HTML, CSS\n- Back-end: Python, Node.js, RESTful APIs\n- Database: MongoDB\n- Cloud Computing: AWS, Azure, Google Cloud";
-    }
-
-    // Work Experience Related Responses
-    if (lowerCaseMessage.includes("experience") || lowerCaseMessage.includes("work") || lowerCaseMessage.includes("job history")) {
-        return "I have experience as a Sales Associate, Delivery Service, and Web Developer, where I handled customer service, software development, and cloud technology integration.";
-    }
-
-    // GitHub or Portfolio Links
-    if (lowerCaseMessage.includes("github") || lowerCaseMessage.includes("projects") || lowerCaseMessage.includes("work samples")) {
-        return "You can check my projects on my GitHub: [GitHub Profile](https://github.com/ylkM)";
-    }
-
-    // Specific Project Inquiry
-    if (lowerCaseMessage.includes("what project") || lowerCaseMessage.includes("projects you did") || lowerCaseMessage.includes("work examples")) {
-        return "Here are some of my latest projects:\n- **Networking**: Configured LAN and WAN networks for secure data transfer.\n- **Cybersecurity**: Applied Cyber NIST framework for threat identification & risk analysis.\n- **Web Development**: Developed a school website for students to enroll in courses.";
-    }
-
-    // Job Application or Hiring
-    if (lowerCaseMessage.includes("apply") || lowerCaseMessage.includes("hiring") || lowerCaseMessage.includes("job")) {
-        return "I'm always open to new opportunities! Feel free to reach out to me at MY.email@example.com.";
-    }
-
-    // Default Response (Fallback)
-    return "I'm not sure how to respond to that, but you can ask about my **education, skills, experience, or projects**!";
-}
-
-// Add "Enter" key functionality for sending messages
-document.getElementById("chat-input").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        event.preventDefault(); // Prevent form submission
-        sendMessage();
-    }
+    // Event Listeners
+    document.getElementById('chat-toggle').addEventListener('click', toggleChatbox);
+    document.getElementById('close-chat').addEventListener('click', toggleChatbox);
+    
+    // Note: Add this to HTML: <button onclick="downloadQRCode()" class="btn">Download QR</button>
+    // Already in your improved HTML
 });
 
-// Chatbox Toggle (Show/Hide)
-document.getElementById("chat-toggle").addEventListener("click", function () {
-    document.getElementById("chatbox").style.display = "block";
-    document.getElementById("chat-toggle").style.display = "none";
-});
+// Error Handling for Missing Elements
+const checkElements = () => {
+    const requiredIds = ['qrcode', 'chat-messages', 'chat-input', 'chat-send', 'chat-toggle', 'close-chat'];
+    requiredIds.forEach(id => {
+        if (!document.getElementById(id)) {
+            console.warn(`Element with ID '${id}' not found in the DOM`);
+        }
+    });
+};
 
-document.getElementById("close-chat").addEventListener("click", function () {
-    document.getElementById("chatbox").style.display = "none";
-    document.getElementById("chat-toggle").style.display = "block";
-});
+checkElements();

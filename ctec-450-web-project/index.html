@@ -3,139 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yilake-Portfolio</title>
+    <meta name="description" content="Yilake's Portfolio - Computer Technology and Security Professional">
+    <meta name="author" content="Yilake">
+    <title>Yilake | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
 </head>
 <body>
-
     <header>
-        <h1>Welcome to Yilake Portfolio Website</h1>  
+        <div class="container">
+            <h1>Yilake's Portfolio</h1>
+            <nav aria-label="Main navigation">
+                <ul role="menubar">
+                    <li role="menuitem"><a href="#home">Home</a></li>
+                    <li role="menuitem"><a href="#about">About</a></li>
+                    <li role="menuitem"><a href="#resume">Resume</a></li>
+                    <li role="menuitem"><a href="https://github.com/ylkM/MY-PROJECTS" target="_blank" rel="noopener noreferrer">Projects</a></li>
+                    <li role="menuitem"><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#resume">Resume</a></li>
-            <li><a href="https://github.com/ylkM/MY-PROJECTS" target="_blank">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    
+    <main>
+        <section id="home" class="section">
+            <div class="container">
+                <h2>Welcome</h2>
+                <p>Explore my work and expertise in technology and security.</p>
+                <p>I'm a technology-driven professional with a Bachelor's degree in Computer Technology and Security, bridging software development and business operations.</p>
+            </div>
+        </section>
 
-    <section id="home">
-        <h1><a href="#home">Home</a></h1>
-        <p>Welcome to my personal website! Here you can learn more about my work and expertise.</p>
-        <p>I am a technology-driven professional with a Bachelor's degree in Computer Technology and Security. My experience spans across software development, sales, customer service, and 
-           delivery operations, bridging technology and business operations.</p>
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>I'm a dedicated professional with over 8 years of sales experience across petrochemical, food, and marketing industries, complemented by technical expertise in:</p>
+                <ul class="skills-list">
+                    <li>Programming: JavaScript, HTML, CSS, Python</li>
+                    <li>Frameworks: React, Node.js</li>
+                    <li>Cloud: AWS, Azure, Google Cloud</li>
+                    <li>Tools: Git, Slack, MongoDB</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="resume" class="section">
+            <div class="container">
+                <h2>Resume</h2>
+                
+                <article class="experience">
+    <h3>Work Experience</h3>
+    <ul>
+        <li>
+            <h4>SSH Silver Spring LLC</h4>
+            <p>Silver Spring, MD</p>
+            <time datetime="2024-02">February 2024</time> - <time datetime="2024-12">December 2024</time>
+            <ul>
+                <li>Provide a warm welcome to guests and offer information about hotel facilities, services, and local attractions.</li>
+                <li>Work closely with the front desk, concierge, and valet teams to ensure smooth operations.</li>
+                <li>Provide support during busy periods, such as check-in/check-out rushes or events.</li>
+            </ul>
+        </li>
         
-    </section>
-    
+        <li>
+            <h4>Jamus Petro Inc. | Sales Associate</h4>
+            <p>Silver Spring, MD</p>
+            <time datetime="2023-10">October 2023</time> - <time datetime="2024-01">January 2024</time>
+            <ul>
+                <li>Sell and promote petrochemical products and services.</li>
+                <li>Provide excellent customer service and handle inquiries professionally.</li>
+                <li>Process payments, issue receipts, and maintain accurate records.</li>
+                <li>Follow safety and environmental regulations.</li>
+            </ul>
+        </li>
 
-    <section id="about">
-        <h1><a href="#home">About</a></h1>
-        <p>I am a web developer passionate about building great user experiences. My expertise lies in **full-stack development, cloud technologies, cybersecurity, and networking**.</p>
-        <p>My experience includes working with **React, JavaScript, Python, MongoDB, AWS, and RESTful APIs**.</p>
-       
-    </section>
+        <li>
+            <h4>Dunkin Donuts | Delivery Service</h4>
+            <p>Washington, DC</p>
+            <time datetime="2022-08">August 2022</time> - <time datetime="2023-09">September 2023</time>
+            <ul>
+                <li>Delivered orders using a company vehicle and GPS navigation.</li>
+                <li>Checked order quality and quantity.</li>
+                <li>Communicated with store managers and customers.</li>
+            </ul>
+        </li>
 
-    <section id="resume">
-        <h1><a href="#home">Resume</a></h1>
-        <p>I am a software engineer with expertise in full-stack development.</p>
+        <li>
+            <h4>BP Food Mart | Sales Associate</h4>
+            <p>Washington, DC</p>
+            <time datetime="2020-08">August 2020</time> - <time datetime="2023-08">August 2023</time>
+            <ul>
+                <li>Operated the cash register, scanned items, and processed payments using cash, credit cards, or coupons.</li>
+                <li>Stocked and replenished shelves, coolers, and displays, ensuring a clean and organized store.</li>
+                <li>Checked and verified inventory, reporting discrepancies or shortages to the manager.</li>
+            </ul>
+        </li>
 
-        <h2>Work Experience</h2>
-        <ul>
-            <li><strong>Sales Associate</strong> - Jamus Petro Inc. (October 2023 - Janwary 2024)
-                <p>- Sell and promote petrochemical products and services to customers.</p>
-                <p>- Provide excellent customer service, handle inquiries, complaints, and manage transactions.</p>
-                <p>- Ensure compliance with safety and environmental regulations.</p>
-            </li>
-            <li><strong>Sales Associate</strong> - BP Gas Station (August 2020 - August 2023)
-                <p>- Assisted customers, processed transactions, and managed store inventory.</p>
-            </li>
-            <li><strong>Delivery Service</strong> - Dunkin Donuts (August 2022 - September 2023)
-                <p>- Delivered orders using company vehicles and GPS navigation.</p>
-                <p>- Ensured quality control and customer satisfaction.</p>
-            </li>
-            <li><strong>Sales Associate</strong> - East-West Marketing (June 2019 - July 2020)
-                <p>- Provided customer support, processed sales transactions, and collaborated with marketing teams.</p>
-            </li>
-        </ul>
+        <li>
+            <h4>East-West Marketing | Sales Associate</h4>
+            <p>Hyattsville, MD</p>
+            <time datetime="2019-06">June 2019</time> - <time datetime="2020-07">July 2020</time>
+            <ul>
+                <li>Collaborated with marketing team and clients to ensure product and service delivery and satisfaction.</li>
+                <li>Met and exceeded sales targets, generating reports on performance and feedback.</li>
+                <li>Maintained a clean, organized, and well-stocked workplace.</li>
+            </ul>
+        </li>
+    </ul>
+</article>
 
-        <h2>Education</h2>
-        <ul>
-            <li><strong>Bowie State University</strong> - Bachelor of Computer Technology and Security (Expected Graduation: December 2024)</li>
-            <li><strong>Prince George’s Community College</strong> - Associate of Arts in General Studies (Phi Theta Kappa Certification)</li>
-        </ul>
+                <article class="education">
+                    <h3>Education</h3>
+                    <ul>
+                        <li>
+                            <h4>Bowie State University:Bowie | MD</h4>
+                            <p>Bachelor of Computer Technology and Security</p>
+                            
+                        </li>
+                        <li>
+                            <h4> George’s Community College | Largo, MD </h4>
+                            <p> Associate of Arts in General Studies</p>
+                            <p>Awards: Phi Theta Kappa Certification</p>
+                        </li>
+                    </ul>
+                </article>
 
-        <h2>Skills</h2>
-        <ul>
-            <li><strong>Programming Languages:</strong> JavaScript, HTML, CSS, Python</li>
-            <li><strong>Front-End Development:</strong> React, Bootstrap</li>
-            <li><strong>Back-End Development:</strong> Node.js, RESTful APIs</li>
-            <li><strong>Database Management:</strong> MongoDB</li>
-            <li><strong>Cloud Computing:</strong> AWS, Azure, Google Cloud</li>
-            <li><strong>Version Control:</strong> Git</li>
-            <li><strong>Collaboration Tools:</strong> Slack</li>
-            <li><strong>Networking & Cybersecurity:</strong> LAN/WAN Configurations, Cyber NIST framework</li>
-        </ul>
+                <article class="skills">
+                    <h3>Technical Skills</h3>
+                    <dl>
+                        <dt>Languages</dt><dd>JavaScript, HTML, CSS, Python</dd>
+                        <dt>Front-End</dt><dd>React, Bootstrap</dd>
+                        <dt>Back-End</dt><dd>Node.js, RESTful APIs</dd>
+                        <dt>Database</dt><dd>MongoDB</dd>
+                        <dt>Cloud</dt><dd>AWS, Azure, Google Cloud</dd>
+                    </dl>
+                </article>
+            </div>
+        </section>
 
-      
-    </section>
+        <section id="projects" class="section">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <ul>
+                    <li><strong>Networking:</strong> <em>Configured secure LAN/WAN networks</em></li>
+                    <li><strong>Cybersecurity:</strong> <em>Developed and implemented intrusion detection systems to monitor and protect networks from unauthorized access. Projects included configuring firewalls, analyzing logs, and deploying real-time alerts to enhance system security and resilience against potential threats.</em></li>
+                    <li><strong>Web Dev:</strong> <em>Created an interactive website featuring a Chatbot, a dynamic resume with a QR code, and an AI-powered assistant for providing quick responses related to my experience, educational background, and skills</em></li>
+                    <li><strong>Cloud Platform Projects:</strong><em>Cloud Platform Projects:Completed hands-on projects across AWS, Azure, and Google Cloud platforms, including account setup, configuration, storage management, and deployment of cloud resources.</em></li>
+                </ul>
+                <a href="https://github.com/ylkM/MY-PROJECTS" target="_blank" rel="noopener noreferrer" class="btn">View All Projects</a>
+            </div>
+        </section>
 
-    <section id="projects">
-        <h1>Featured Projects</h1>
-        <ul>
-            <li><strong>Networking:</strong> Configured LAN and WAN networks for secure data transfer.</li>
-            <li><strong>Cybersecurity:</strong> Applied Cyber NIST framework for threat identification & risk analysis.</li>
-            <li><strong>Web Development:</strong> Developed a school website for students to enroll in courses.</li>
-        </ul>
-        <p><a href="https://github.com/ylkM/MY-PROJECTS" target="_blank">View All My Projects on GitHub</a></p>
-    </section>
-    
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Contact</h2>
+                <ul class="contact-list">
+                    <li>Email: <a href="mailto:ylkmngst7@gmail.com">ylkmngst7@gmail.com</a></li>
+                    <li>GitHub: <a href="https://github.com/ylkM" target="_blank" rel="noopener noreferrer">github.com/ylkM</a></li>
+                    <li>LinkedIn: <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></li>
+                </ul>
+                <div id="qrcode" aria-label="QR code to portfolio"></div>
+                <button type="button" onclick="downloadQRCode()" class="btn">Download QR</button>
+            </div>
+        </section>
+    </main>
 
-    <section id="contact">
-        <h1><a href="#home">Contact</a></h1>
-        <p>Email: <a href="mailto:your.email@example.com">ylkmngst7@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/ylkM" target="_blank">https://github.com/ylkM</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/your-profile" target="_blank">my- LinkedIn</a></p>
-        <a href="#top" class="back-to-top">Back to Top</a>
-    </section>
+    <aside class="chatbox-container">
+        <button id="chat-toggle" class="chat-toggle-btn" aria-label="Toggle chat">💬</button>
+        <div id="chatbox" class="chatbox" hidden>
+            <div class="chat-header">
+                <h3>Chat with Me</h3>
+                <button id="close-chat" class="close-chat-btn" aria-label="Close chat">×</button>
+            </div>
+            <div id="chat-messages" class="chat-messages" aria-live="polite">
+                <p>👋 Hi there! How can I help you today?</p>
+            </div>
+            <form class="chat-form">
+                <input id="chat-input" type="text" placeholder="Type your message..." aria-label="Chat message input">
+                <button id="chat-send" type="submit">Send</button>
+            </form>
+        </div>
+    </aside>
 
-   
-<!-- Other Sections Like Home, About, Resume, etc. -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Yilake. All rights reserved.</p>
+            <a href="#top" class="back-to-top" aria-label="Back to top">↑ Top</a>
+        </div>
+    </footer>
 
-<!-- QR Code Section -->
-<section id="qr-code">
-    
-    <div id="qrcode"></div>
-    <button onclick="downloadQRCode()">Download QR</button>
-</section>
-
-<!-- Chat Box -->
-<!-- Chatbox Button -->
-<button id="chat-toggle" class="chat-toggle-btn">Chat with Me</button>
-
-<!-- Chatbox -->
-<div id="chatbox" class="chatbox">
-    <div class="chat-header">
-        <span>Chat with Me</span>
-        <button id="close-chat" class="close-chat-btn">&times;</button>
-    </div>
-    <div id="chat-messages" class="chat-messages">
-        <p>👋 Hi there! How can I help you today?</p>
-    </div>
-    <input id="chat-input" type="text" placeholder="Type your message...">
-    <button id="chat-send">Send</button>
-</div>
-
-<footer>
-    <p>&copy; 2024 Yilake. All Rights Reserved.</p>
-</footer>
-<!-- Link JavaScript at the End -->
-<script src="script.js"></script>
-
+    <script src="script.js" defer></script>
 </body>
 </html>
